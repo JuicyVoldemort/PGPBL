@@ -17,12 +17,16 @@ export class AuthGuard implements CanLoad {
     return this.store.select('login').pipe(
       take(1),
       switchMap(loginState => {
-        if(loginState.isLoggedIn){
+        if (loginState.isLoggedIn) {
           return of(true);
         }
         this.router.navigateByUrl('login');
-        return of (false);
+        return of(false);
       })
     )
   }
 }
+
+//Penambahan Authguard dilakukan untuk mencegah pengguna yang tidak memiliki 
+//otorisasi untuk mengakses halaman/pages dari url. Dibutuhkan login
+//Kode berdasarkan video tutorial nomor playlist 20

@@ -45,3 +45,5 @@ describe('AuthGuard', () => {
       })
     })
 });
+
+//auth guard specs digunakan untuk melakukan tes dan konfigurasi terhadap authguard yang telah dibuat.
