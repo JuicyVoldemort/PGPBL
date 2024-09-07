@@ -11,7 +11,7 @@ describe('RegisterPageForm', () => {
     });
 
     it('should empty name be invalid', () => {
-        expect(form.get('name')!.valid).toBeFalsy();
+        expect(form.get('name')!.valid).toBeFalsy();  
     });
 
     it('should empty email be invalid', () => {

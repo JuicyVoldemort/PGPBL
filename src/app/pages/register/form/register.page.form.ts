@@ -12,19 +12,19 @@ export class RegisterPageForm {
 
     private createForm(): FormGroup {
         let form = this.formBuilder.group({
-            name: ['', Validators.required],
-            email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required, Validators.minLength(6)]],
-            repeatPassword: [''],
-            phone: ['', Validators.required],
-            address: this.formBuilder.group({
-                street: ['', Validators.required],
-                number: ['', Validators.required],
-                neighborhood: [''],
-                complement: [''],
-                zipcode: ['', Validators.required],
-                state: ['', Validators.required],
-                city: ['', Validators.required]
+            name: ['', Validators.required],          // Validators required merubah tab pengisian menjadi merah apabila kosong
+            email: ['', [Validators.required, Validators.email]],   //Validators Email memastikan isian pada kolom isi merupakan alamat email dan bukan yang lain
+            password: ['', [Validators.required, Validators.minLength(6)]],  //Validator minLenght menentukan minimal panjang dari password yang dibuat
+            repeatPassword: [''],                     // Terdapat validator berbeda untuk kolom repeatPassword
+            phone: ['', Validators.required],         // Validators required merubah tab pengisian menjadi merah apabila kosong
+            address: this.formBuilder.group({         // formBuilder disini dibuat menjadi group agar alamat terkumpul jadi satu dan berbeda dari informasi pribadi diatas
+                street: ['', Validators.required],    // Validators required merubah tab pengisian menjadi merah apabila kosong
+                number: ['', Validators.required],    // Validators required merubah tab pengisian menjadi merah apabila kosong
+                neighborhood: [''],                   // Tidak diisi tidak masalah
+                complement: [''],                     // Tidak diisi tidak masalah
+                zipcode: ['', Validators.required],   // Validators required merubah tab pengisian menjadi merah apabila kosong
+                state: ['', Validators.required],     // Validators required merubah tab pengisian menjadi merah apabila kosong
+                city: ['', Validators.required]       // Validators required merubah tab pengisian menjadi merah apabila kosong
             })
         });
 
@@ -39,9 +39,9 @@ export class RegisterPageForm {
 
     private matchPasswordAndRepeatPassword(form: FormGroup): ValidatorFn {
         return () => {
-            const password = form.get('password')!.value; // Non-null assertion used
-            const repeatPassword = form.get('repeatPassword')!.value; // Non-null assertion used
-            return password === repeatPassword ? null : { isntMatching: true };
+            const password = form.get('password')!.value; 
+            const repeatPassword = form.get('repeatPassword')!.value; 
+            return password === repeatPassword ? null : { isntMatching: true };   //const disini membuat validasi agar password dan repeat password memiliki isian yang sama
         };
     }
 }
