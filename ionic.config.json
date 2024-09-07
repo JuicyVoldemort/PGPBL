@@ -1,0 +1,7 @@
+{
+  "name": "PGBL-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
