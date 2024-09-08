@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { login, recoverPassword } from 'src/store/login/login.actions';
+import { login, recoverPassword,recoverPasswordSuccess, loginSuccess, loginFail, recoverPasswordFail } from 'src/store/login/login.actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, switchMap } from 'rxjs/operators';
-import { recoverPasswordSuccess } from 'src/store/login/login.actions';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { of } from 'rxjs';
-import { recoverPasswordFail } from 'src/store/login/login.actions';
-import { loginSuccess, loginFail } from 'src/store/login/login.actions';
+
+
 @Injectable()
 export class LoginEffects {
   constructor(private actions$: Actions, private authServices: AuthService) {}
