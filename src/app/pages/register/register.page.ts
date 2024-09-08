@@ -18,9 +18,14 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
     this.createForm();
   }
+
   register() {
+    this.registerForm.getForm().markAllAsTouched();
+
+    if (this.registerForm.getForm().valid){
     this.router.navigate(['home']);
   }
+}
 
   private createForm() {
     this.registerForm = new RegisterPageForm(this.formBuilder);
