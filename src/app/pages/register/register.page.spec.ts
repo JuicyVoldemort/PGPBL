@@ -90,15 +90,16 @@ describe('RegisterPage', () => {
     });
   });
 
-  it('should go to home when registration successful', () => {
+  it('should login when registration successful', () => {
     fixture.detectChanges();
 
-    spyOn(router, 'navigate');
-
-    store.dispatch(register({ userRegister: new UserRegister() }));
+        store.dispatch(register({ userRegister: new UserRegister() }));
     store.dispatch(registerSuccess());
 
-    expect (router.navigate).toHaveBeenCalledWith(['home']);
+    store.select('login').subscribe(state => {
+      expect (state.isLoggingIn).toBeTruthy();
+    })
+    
   })
 
   it('should hide loading component when registration fails', () => {
