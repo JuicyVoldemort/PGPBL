@@ -11,3 +11,9 @@ import { ErrorMessageComponent } from '../components/error-message/error-message
   exports: [PickupCallCardComponent, ErrorMessageComponent] // Export it so it can be used in other modules
 })
 export class SharedModule {}
+
+
+// shared module disini digunakan untuk mengatasi error dari penggunaan component berulang
+// shared module memusatkan export di satu module sehingga dapat dipanggil di module lain
+// menjadi solusi alternatif dari apa yang ditunjukkan pada video tutorial nomor playlist 23
+
